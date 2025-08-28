@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "lib": ["dom", "dom.iterable", "esnext"], // 브라우저 API + 최신 JS 기능 타입 지원
+      "module": "esnext",                       // ES 모듈(import/export) 최신 문법 사용
+      "moduleResolution": "bundler",            // Vite/Webpack 같은 번들러 방식으로 모듈 찾기
+      "target": "es2015",                       // 컴파일된 JS 버전: ES6(2015)
+
+      "allowJs": true,                          // .js 파일도 허용
+      "allowSyntheticDefaultImports": true,     // default export 없어도 import 기본형식 허용
+      "esModuleInterop": true,                  // CommonJS와 ES 모듈 간 호환 지원
+      "isolateModules": true,                   // 각 파일을 독립 모듈처럼 취급
+      "jsx": "react-jsx",                       // React 17+ JSX 변환 방식
+      "noEmit": true,                           // JS 결과 파일 생성하지 않고 타입체크만
+
+      "noFallthroughCasesInSwitch": true,       // switch문에서 case 누락 방지 (break 강제)
+      "resolveJsonModule": true,                // .json 파일 import 허용
+      "skipLibCheck": true,                     // 라이브러리(.d.ts) 타입검사 생략 → 빌드 빨라짐
+      "strict": true                            // 엄격 모드 (타입 안정성 최상 강화)
+    }
+}

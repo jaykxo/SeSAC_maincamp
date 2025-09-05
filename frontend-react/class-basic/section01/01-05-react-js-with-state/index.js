@@ -20,7 +20,7 @@ const 메인페이지 = () => {
         <>
             <div>
                 <button onClick={목록페이지보여주는기능}>유튜브목록</button>
-                <button>유튜버민지채널</button>
+                <button onClick={민지채널페이지보여주는기능}>유튜버민지채널</button>
             </div>
             <div id="목록페이지보여주는곳">
                 <목록페이지 zzz={구독자수} />   {/* {목록페이지({zzz: 구독자수})} */}

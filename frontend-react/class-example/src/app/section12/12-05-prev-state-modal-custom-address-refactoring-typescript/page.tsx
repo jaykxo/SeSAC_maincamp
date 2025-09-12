@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
-import DaumPostcodeEmbed from 'react-daum-postcode';
+import DaumPostcodeEmbed, {Address} from 'react-daum-postcode';
 
 
 const App: React.FC = () => {
@@ -12,8 +12,10 @@ const App: React.FC = () => {
     setIsModalOpen((prev) => !prev);
   };
 
-  const handleComplete = (data) => {
+  const handleComplete = (data: Address) => {
     console.log(data);
+    data.address
+    data.zonecode
     onToggleModal();
   };
 

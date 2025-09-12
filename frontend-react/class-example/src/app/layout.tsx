@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import ApolloSetting from "@/commons/providers/06-02-apollo-provider";
+import ApiProvider from "@/commons/providers/13-04-apollo-provider";
+import Layout from "@/commons/layout";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
 interface IProps {
   children: React.ReactNode;
 }
-export default function RootLayout(props: IProps) {
+export default function RootLayout({children}: IProps) {
 
   return (
     <html lang="en">
@@ -36,9 +37,27 @@ export default function RootLayout(props: IProps) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div>===============여기 위는 레이아웃 입니다.===============</div>
-        <ApolloSetting 모든페이지={props.children} />
+        {/* <Layout>
+          <ApolloSetting 모든페이지={props.children} />
+        </Layout> */}
+
+        {/* 13-04) 레이아웃까지 Graphql 요청 가능하도록 세팅하기 */}
+        {/* <ApolloSetting 모든페이지={<Layout>{children}</Layout>} /> */}
+
+        {/* 13-04) 더 좋은 방식 */}
+          <ApiProvider>
+            <Layout>{children}</Layout>
+          </ApiProvider>
+
         <div>===============여기 아래는 레이아웃 입니다.===============</div>
       </body>
     </html>
   );
 }
+
+// 13-01) 페이지 접속시 작동 원리
+// 1. 게시판 페이지에 접속
+// 2. 내부적으로 루트 레이아웃이 실행됨
+//    <RootLayout>
+//      <BoardsPage />
+//    </RootLayout>

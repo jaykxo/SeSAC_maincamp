@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import ApiProvider from "@/commons/providers/13-04-apollo-provider";
+// import ApiProvider from "@/commons/providers/13-04-apollo-provider";
 import Layout from "@/commons/layout";
+import ApiUploadProvider from "@/commons/providers/18-01-api-upload-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,9 +31,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ApiProvider>
+        {/* <ApiProvider>
           <Layout>{children}</Layout>
-        </ApiProvider>
+        </ApiProvider> */}
+
+        {/* 18-01-image-upload */}
+        <ApiUploadProvider>
+          <Layout>{children}</Layout>
+        </ApiUploadProvider>
       </body>
     </html>
   );
